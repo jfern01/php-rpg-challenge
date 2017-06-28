@@ -10,7 +10,7 @@ class MagicShield extends Skill implements DefensiveSkill
 
     protected $name = 'Magic Shield';
 
-    public function use(int $damage): float
+    public function use(float $damage): float
     {
         $damage = $damage / 2;
         printf('%s uses %s which lowers damage to %.2f.' . PHP_EOL, $this->getPerformer()->getName(), $this->getName(), $damage);

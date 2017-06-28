@@ -4,7 +4,7 @@ require 'autoload.php';
 
 $hero = new RpgChallenge\Emagia\Hero(
     'Orderus',
-    rand(70.00, 100.00),
+    (float) rand(70, 100),
     rand(70, 80),
     rand(45, 55),
     rand(40, 50),
@@ -18,7 +18,7 @@ $hero->addSkills(
 
 $monster = new RpgChallenge\Emagia\Monster(
     'Wild Beast',
-    rand(60.00, 90.00),
+    (float) rand(60, 90),
     rand(60, 90),
     rand(40, 60),
     rand(40, 60),

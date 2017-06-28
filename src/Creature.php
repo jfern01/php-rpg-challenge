@@ -17,7 +17,7 @@ abstract class Creature
 
     public function __construct(
         string $name = '',
-        int $health = 0,
+        float $health = 0.00,
         int $strength = 0,
         int $defense = 0,
         int $speed = 0,

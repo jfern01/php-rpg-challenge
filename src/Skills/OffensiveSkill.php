@@ -5,5 +5,5 @@ use RpgChallenge\Emagia\Creature;
 
 interface OffensiveSkill
 {
-    public function use(Creature $creature):float;
+    public function use(Creature $creature): float;
 }

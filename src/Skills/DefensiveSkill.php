@@ -5,5 +5,5 @@ use RpgChallenge\Emagia\Creature;
 
 interface DefensiveSkill
 {
-    public function use(int $damage):float;
+    public function use(float $damage): float;
 }
