@@ -1,12 +1,11 @@
 <?php
-
 namespace RpgChallenge\Emagia;
 
 abstract class Creature
 {
     protected $name = '';
 
-    protected $health = 0;
+    protected $health = 0.00;
 
     protected $strength = 0;
 
@@ -37,7 +36,7 @@ abstract class Creature
         return $this->name;
     }
 
-    public function getHealth(): int
+    public function getHealth(): float
     {
         return $this->health;
     }
@@ -65,5 +64,35 @@ abstract class Creature
     public function isAlive(): bool
     {
         return $this->health > 0;
+    }
+
+    public function attack(Creature $creature): float
+    {
+        $damage = $this->getStrength() - $creature->getDefense();
+
+        printf('%s attacks %s for %d points of damage.' . PHP_EOL, $this->getName(), $creature->getName(), $damage);
+
+        return (float) $damage;
+    }
+
+    public function defend(float $damage = 0.00)
+    {
+        if ($this->isAlive()) {
+            if ($this->luck >= rand(1, 100)) {
+                $this->health = $damage > $this->health ? 0 : $this->health-= $damage;
+
+                printf('%s takes %.2f points of damage.' . PHP_EOL, $this->getName(), $damage);
+
+                if ($this->isAlive()) {
+                    printf('%s has %.2f health left.' . PHP_EOL, $this->getName(), $this->getHealth());
+                } else {
+                    printf('%s dies.' . PHP_EOL, $this->getName());
+                }
+            } else {
+                printf('%s dodges the attack.' . PHP_EOL, $this->getName());
+            }
+        } else {
+            printf('%s is dead.' . PHP_EOL, $this->getName());
+        }
     }
 }

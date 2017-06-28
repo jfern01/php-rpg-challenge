@@ -1,11 +1,12 @@
 <?php
-
 namespace RpgChallenge\Emagia;
 
 use RpgChallenge\Emagia\Creature;
 
 abstract class Skill
 {
+    const CODE = 'skill';
+
     protected $name;
 
     protected $performer;
@@ -24,6 +25,4 @@ abstract class Skill
     {
         return $this->performer;
     }
-
-    abstract public function perform(Creature $subject);
 }

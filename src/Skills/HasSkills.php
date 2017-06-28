@@ -1,5 +1,4 @@
 <?php
-
 namespace RpgChallenge\Emagia\Skills;
 
 use RpgChallenge\Emagia\Skill;
@@ -18,21 +17,21 @@ trait HasSkills
         return !empty($kills);
     }
 
-    public function hasSkill(Skill $skill)
+    public function hasSkill($code)
     {
-        return isset($this->skills[get_class($skill)]) && $this->skills[get_class($skill)] instanceof Skill;
+        return isset($this->skills[$code]) && $this->skills[$code] instanceof Skill;
     }
 
-    public function getSkill(string $class)
+    public function getSkill($code)
     {
-        return $this->skills[$class];
+        return $this->skills[$code];
     }
 
     public function addSkills(...$skills)
     {
         foreach ($skills as $skill) {
-            if ($skill instanceof Skill && !$this->hasSkill($skill) && $skill->getPerformer() == $this) {
-                $this->skills[get_class($skill)] = $skill;
+            if ($skill instanceof Skill && !$this->hasSkill($skill::CODE) && $skill->getPerformer() == $this) {
+                $this->skills[$skill::CODE] = $skill;
             }
         }
     }
