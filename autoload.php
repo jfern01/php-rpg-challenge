@@ -14,7 +14,7 @@
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    $prefix = 'RpgChallenge\\Emagia\\';
+    $prefix = 'Jfern01\\RpgChallenge\\';
 
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/src/';
